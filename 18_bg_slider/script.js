@@ -18,3 +18,4 @@ function setActiveSlide() {
 
   slides[activeSlide].classList.add('actice');
 }
+ 
