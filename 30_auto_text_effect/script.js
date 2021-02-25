@@ -1,35 +1,24 @@
-const button = document.getElementById('button');
-const toasts = document.getElementById('toasts');
+const textEl = document.getElementById('text');
+const speedEl = document.getElementById('speed');
+const text = `Hi, I'm Hyunji!`;
 
-const messages = [
-    'Message One',
-    'Message Two',
-    'Message Three',
-    'Message Four'
-];
+let idx = 1; // increment the number of the text shown one by one
+let speed = 300 / speedEl.value; // start by speed of 300 
 
-const types = ['info', 'success', 'error'];
+writeText()
 
-button.addEventListener('click', () => createNotification());
+function writeText() {
+    textEl.innerText = text.slice(0, idx);
 
-function createNotification(message = null, type = null) {
-    const notif = document.createElement('div');
-    notif.classList.add('toast');
-    notif.classList.add(type ? type : getRandomType());
+    idx++;
 
-    notif.innerText = message ? message : getRandomMessage();
-    
-    toasts.appendChild(notif);
+    if(idx > text.length) {
+        idx = 1; // have this keep going after typing all the texts
+    }
 
-    setTimeout(()=> {
-        notif.remove()
-    }, 3000);
+    setTimeout(writeText, speed);
 }
 
-function getRandomMessage() {
-    return messages[Math.floor(Math.random() * messages.length)]
-}
-
-function getRandomType() {
-    return types[Math.floor(Math.random() * types.length)]
-}
+speedEl.addEventListener('input', (e) => {
+    speed = 300 / e.target.value
+})
