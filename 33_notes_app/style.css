@@ -13,6 +13,10 @@ body {
   padding-top: 3rem;
 }
 
+button:focus {
+  outline: none;
+}
+
 .add {
   position: fixed;
   top: 1rem;
@@ -23,10 +27,6 @@ body {
   border-radius: 3px;
   padding: 0.5rem 1rem;
   cursor: pointer;
-}
-
-.add:focus {
-  outline: none;
 }
 
 .add:hover {
@@ -64,6 +64,10 @@ body {
   border: none;
   height: 400px;
   width: 100%;
+  padding: 20px;
+}
+
+.main {
   padding: 20px;
 }
 
